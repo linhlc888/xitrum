@@ -6,6 +6,8 @@ import akka.actor.Actor
 import org.jboss.netty.channel.{ChannelFuture, ChannelFutureListener}
 import org.jboss.netty.handler.codec.http.{HttpMethod, HttpResponseStatus}
 
+import org.apache.commons.lang3.exception.ExceptionUtils
+
 import xitrum.action._
 import xitrum.exception.{InvalidAntiCsrfToken, InvalidInput, MissingParam, SessionExpired}
 import xitrum.handler.{AccessLog, HandlerEnv}
@@ -130,7 +132,7 @@ trait Action extends RequestEnv
                 }
             }
           } else {
-            val errorMsg = e.toString + "\n\n" + e.getStackTraceString
+            val errorMsg = e.toString + "\n\n" + ExceptionUtils.getStackTrace(e)
             if (isAjax)
               jsRespond("alert(\"" + jsEscape(errorMsg) + "\")")
             else

@@ -5,8 +5,8 @@ import org.jboss.netty.channel.{Channel, ChannelHandlerContext}
 import org.jboss.netty.handler.codec.frame.FrameDecoder
 
 object FlashSocketPolicyRequestDecoder {
-  // The request must be exactly "<policy-file-request/>\0"
-  val REQUEST                = ChannelBuffers.wrappedBuffer("<policy-file-request/>\0".getBytes)
+  // The request must be exactly "<policy-file-request/>\u0000"
+  val REQUEST                = ChannelBuffers.wrappedBuffer("<policy-file-request/>\u0000".getBytes)
   val REQUEST_LENGTH         = REQUEST.readableBytes
   val TICKET_TO_NEXT_HANDLER = new Object
 }
