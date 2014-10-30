@@ -225,7 +225,7 @@ class RouteCollector extends Log {
   }
 
   private def getStrings(annotation: universe.Annotation): Seq[String] = {
-    annotation.scalaArgs.map { tree => tree.productElement(0).asInstanceOf[universe.Constant].value.toString }
+    annotation.tree.children.tail.map { tree => tree.productElement(0).asInstanceOf[universe.Constant].value.toString }
   }
 
   //----------------------------------------------------------------------------
@@ -237,7 +237,7 @@ class RouteCollector extends Log {
     } else {
       var swaggerArgs = Seq.empty[SwaggerArg]
       universeAnnotations.foreach { annotation =>
-        annotation.scalaArgs.foreach { scalaArg =>
+        annotation.tree.children.tail.foreach { scalaArg =>
           // Ex:
           // List(xitrum.annotation.Swagger.Response.apply, 200, "ID of the newly created article will be returned")
           // List(xitrum.annotation.Swagger.StringForm.apply, "title", xitrum.annotation.Swagger.StringForm.apply$default$2)
