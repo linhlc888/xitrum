@@ -4,10 +4,10 @@ name := "xitrum"
 
 version := "2.16-SNAPSHOT"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.2"
 //scalaVersion := "2.10.4"
 
-crossScalaVersions := Seq("2.11.1", "2.10.4")
+crossScalaVersions := Seq("2.11.2", "2.10.4")
 
 scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked")
 
@@ -32,36 +32,36 @@ resolvers += "SonatypeReleases" at "http://oss.sonatype.org/content/repositories
 libraryDependencies += "org.slf4j" % "slf4j-api" % "1.7.7" % "provided"
 
 // Netty is the core of Xitrum's HTTP(S) feature
-libraryDependencies += "io.netty" % "netty" % "3.9.2.Final"
+libraryDependencies += "io.netty" % "netty" % "3.9.4.Final"
 
-libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.3"
+libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.6"
 
-libraryDependencies += "com.typesafe.akka" %% "akka-cluster" % "2.3.3"
+libraryDependencies += "com.typesafe.akka" %% "akka-cluster" % "2.3.6"
 
-libraryDependencies += "com.typesafe.akka" %% "akka-contrib" % "2.3.3"
+libraryDependencies += "com.typesafe.akka" %% "akka-contrib" % "2.3.6"
 
 // For clustering SockJS
 libraryDependencies += "tv.cntt" %% "glokka" % "2.0"
 
 // Redirect Akka log to SLF4J
-libraryDependencies += "com.typesafe.akka" %% "akka-slf4j" % "2.3.3"
+libraryDependencies += "com.typesafe.akka" %% "akka-slf4j" % "2.3.6"
 
 // For scanning routes
 libraryDependencies += "tv.cntt" %% "sclasner" % "1.6"
 
 // For (de)serializing
-libraryDependencies += "tv.cntt" %% "chill-scala" % "1.1"
+libraryDependencies += "com.twitter" %% "chill" % "0.5.0"
 
 // For jsEscape
 libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.3.2"
 
-libraryDependencies += "org.json4s" %% "json4s-native" % "3.2.9"
+libraryDependencies += "org.json4s" %% "json4s-native" % "3.2.11"
 
 // For i18n
-libraryDependencies += "tv.cntt" %% "scaposer" % "1.3"
+libraryDependencies += "tv.cntt" %% "scaposer" % "1.5"
 
 // For compiling CoffeeScript to JavaScript
-libraryDependencies += "tv.cntt" % "rhinocoffeescript" % "1.7.1"
+libraryDependencies += "tv.cntt" % "rhinocoffeescript" % "1.8.0"
 
 //------------------------------------------------------------------------------
 // JSON4S uses scalap 2.10.0 (2.11.0), which in turn uses scala-compiler 2.10.0 (2.11.0),
@@ -76,7 +76,7 @@ libraryDependencies <+= scalaVersion { sv => "org.scala-lang" % "scalap" % sv }
 
 // For test --------------------------------------------------------------------
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.0" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.1" % "test"
 
 // An implementation of SLF4J is needed for log in tests to be output
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.2" % "test"
