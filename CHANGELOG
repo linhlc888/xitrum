@@ -681,7 +681,7 @@ For an example, see https://github.com/ngocdaothanh/xitrum-new
 * Set Expires header for resources in classpath
 * HTTPS (see config/xitrum.properties)
   KeyStore Explorer is a good tool to create self-signed keystore:
-  http://www.lazgosoftware.com/kse/index.html
+  http://keystore-explorer.sourceforge.net/
 
 1.3:
 * Update
